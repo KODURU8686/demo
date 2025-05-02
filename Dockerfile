@@ -6,7 +6,7 @@ RUN mvn clean install    ## artifact -- .war
 
 ## tomcat deploy stage 
 FROM tomcat 
-WORKDIR webapps 
+WORKDIR WebContent 
 COPY --from=buildstage /opt/naveendemo/target/*.war .
 RUN rm -rf ROOT && mv *.war ROOT.war
 EXPOSE 8080
